@@ -8,7 +8,7 @@ const ROWS_COUNT_ARG_NAME: &str = "rows";
 const COLUMNS_NAME_ARG_DELIMITER: &str = ",";
 
 pub fn parse_params() -> GeneratorParams {
-    let arg_matches = command!() // requires `cargo` feature
+    let arg_matches = command!()
         .arg(Arg::new(TABLE_COLUMNS_ARG_NAME).short('c').long(TABLE_COLUMNS_ARG_NAME).help("Column names (delimiter = ',')").required(true))
         .arg(Arg::new(OUT_ARG_NAME).short('o').long(OUT_ARG_NAME).help("Output filepath").required(true))
         .arg(Arg::new(ROWS_COUNT_ARG_NAME).short('r').long(ROWS_COUNT_ARG_NAME).help("Rows count").required(true))
