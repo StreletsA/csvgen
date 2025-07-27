@@ -53,7 +53,7 @@ fn generate_row(columns_count: i32) -> String {
     let mut row: String = "".to_string();
     for i in 0..columns_count {
         if i > 0 {
-            row = row + ";";
+            row = row + CSV_DELIMITER;
         }
         row = row + Alphanumeric.sample_string(&mut rand::rng(), 16).as_str();
     }
