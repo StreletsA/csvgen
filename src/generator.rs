@@ -6,8 +6,11 @@ use rand::distr::{Alphanumeric, SampleString};
 const CSV_DELIMITER: &str = ";";
 
 pub struct GeneratorParams {
+    // Table column names
     pub columns: Vec<String>,
+    // File path for generated CSV file writing 
     pub out: String,
+    // Number of lines generated
     pub rows_count: i32,
 }
 
@@ -31,6 +34,7 @@ fn write_table_header(columns: &Vec<String>, csv_file: &mut File) {
 }
 
 fn fill_rows(columns_count: i32, rows_count: i32, csv_file: &mut File) {
+    // Row is generated once to improve performance
     let row = generate_row(columns_count);
     for i in 0..rows_count {
         csv_file.write("\n".as_bytes())
